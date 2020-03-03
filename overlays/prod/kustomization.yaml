@@ -1,0 +1,6 @@
+namespace: app-prod
+bases:
+  - ../../base
+patchesStrategicMerge:
+  - patch.yaml
+
