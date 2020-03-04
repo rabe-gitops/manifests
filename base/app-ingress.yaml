@@ -4,7 +4,7 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-1:904573531492:certificate/c8242151-0232-45d3-99e1-ef84bee4cf4f
     alb.ingress.kubernetes.io/group.name: common-alb-group
-    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-path: /app/index.html
     alb.ingress.kubernetes.io/healthcheck-port: "8080"
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
     alb.ingress.kubernetes.io/target-group-attributes: deregistration_delay.timeout_seconds=30
@@ -12,7 +12,7 @@ metadata:
     kubernetes.io/ingress.class: alb
   generation: 1
   labels:
-    app.kubernetes.io/name: app
+    app.kubernetes.io/name: app-ingress
   name: app-ingress
 spec:
   rules:
