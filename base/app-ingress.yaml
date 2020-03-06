@@ -22,5 +22,9 @@ spec:
       - backend:
           serviceName: app-service
           servicePort: 8080
-        path: /app*
+        path: /app
+      - backend:
+          serviceName: app-service
+          servicePort: 8080
+        path: /app/*
 
