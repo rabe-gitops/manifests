@@ -9,8 +9,8 @@ spec:
       - backend:
           serviceName: app-service
           servicePort: 8080
-        path: /app/staging
+        path: /app/test
       - backend:
           serviceName: app-service
           servicePort: 8080
-        path: /app/staging/*
+        path: /app/test/*

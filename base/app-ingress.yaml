@@ -1,6 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
+  name: app-ingress
   annotations:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-1:904573531492:certificate/c8242151-0232-45d3-99e1-ef84bee4cf4f
     alb.ingress.kubernetes.io/group.name: common-alb-group
@@ -13,7 +14,6 @@ metadata:
     kubernetes.io/ingress.class: alb
   labels:
     app.kubernetes.io/name: app-ingress
-  name: app-ingress
 spec:
   rules:
   - http:

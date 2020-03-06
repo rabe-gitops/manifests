@@ -1,7 +1,16 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: extensions/v1beta1
+kind: Ingress
 metadata:
-  name: app-deployment
+  name: app-ingress
 spec:
-  replicas: 3
-
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: app-service
+          servicePort: 8080
+        path: /app/prod
+      - backend:
+          serviceName: app-service
+          servicePort: 8080
+        path: /app/prod/*
