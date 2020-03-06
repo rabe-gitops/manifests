@@ -11,7 +11,6 @@ metadata:
     alb.ingress.kubernetes.io/target-group-attributes: deregistration_delay.timeout_seconds=30
     alb.ingress.kubernetes.io/target-type: ip
     kubernetes.io/ingress.class: alb
-  generation: 1
   labels:
     app.kubernetes.io/name: app-ingress
   name: app-ingress
