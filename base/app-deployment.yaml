@@ -16,8 +16,11 @@ spec:
     spec:
       containers:
       - name: app
-        image: 904573531492.dkr.ecr.eu-west-1.amazonaws.com/app:0.2.3
+        image: 904573531492.dkr.ecr.eu-west-1.amazonaws.com/app:0.2.4
         ports:
         - containerPort: 8080
           protocol: TCP
-
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
