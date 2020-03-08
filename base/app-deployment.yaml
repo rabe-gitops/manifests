@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: 904573531492.dkr.ecr.eu-west-1.amazonaws.com/app:9ab1eb9
+        image: 904573531492.dkr.ecr.eu-west-1.amazonaws.com/app:e3cf979
         ports:
         - containerPort: 8080
           protocol: TCP
