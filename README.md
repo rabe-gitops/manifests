@@ -1,2 +1,2 @@
 # Manifests
-Repository containing the Kubernetes manifests
+Repository containing the Kubernetes manifests for the sample app
