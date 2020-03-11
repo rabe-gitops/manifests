@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: app-service
   annotations:
-    # service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:904573531492:certificate/5031567c-58b4-4867-a15c-05dbd5da426c
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:904573531492:certificate/5031567c-58b4-4867-a15c-05dbd5da426c
     service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
-    # service.beta.kubernetes.io/aws-load-balancer-ssl-ports: 'https'
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: 'https'
     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
     external-dns.alpha.kubernetes.io/hostname: app.rabegitops.it
 spec:
