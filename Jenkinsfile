@@ -5,6 +5,7 @@ pipeline {
   environment {
     BASE_PATH = 'base'
     OVERLAYS_PATH = 'overlays'
+    SLAVES_TEMPLATES_PATH = 'slaves'
   }
 
   /*** STAGES ***/
@@ -21,7 +22,9 @@ pipeline {
 
       agent {
         // execute on the 'kubectl slave' pod
-        label 'kubectl-slave' // image: boxboat/kubectl
+        kubernetes {
+          yamlFile "${SLAVES_TEMPLATES_PATH}/kubectl-slave.yaml"
+        }
       }
 
       steps {
@@ -34,34 +37,6 @@ pipeline {
         }
       }
     }
-
-    /** TAG SHIFT **/
-    // stage('tag-shift') {
-
-    //   when {
-    //     // only for the master branch
-    //     beforeAgent true
-    //     branch 'master'
-    //   }
-
-    //   agent {
-    //     // execute on the 'jenkins slave' pod
-    //     label 'jenkins-slave' // image: jenkins/jnlp-slave:alpine
-    //   }
-
-    //   steps {
-    //     // move latest release tag if not on HEAD (i.e. when manifests are updated)
-    //     sh """
-    //       read LATEST_TAG_COMMIT LATEST_TAG_NAME <<< \$(git ls-remote --tags --refs --sort='v:refname' origin | grep 'rel-*' | tail -n1 | sed -En 's|^([a-z0-9]+).*(rel-.*)\$|\\1 \\2|p')
-    //       LATEST_COMMIT=\$(git rev-parse origin/master)
-    //       if [ \${LATEST_TAG_COMMIT} != \${LATEST_COMMIT} ]; then \
-    //         git push origin :refs/tags/\${LATEST_TAG_NAME} \
-    //         git tag -f \${LATEST_TAG_NAME} \
-    //         git push origin master --tags \
-    //       fi
-    //     """
-    //   }
-    // }
   }
 
   // /*** POST-EXECUTION ***/
