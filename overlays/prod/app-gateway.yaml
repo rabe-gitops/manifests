@@ -11,7 +11,7 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "app-test.rabegitops.it"
+    - "app.rabegitops.it"
     tls:
       httpsRedirect: true
   - port:
@@ -19,4 +19,4 @@ spec:
       name: https
       protocol: HTTP
     hosts:
-    - "app-test.rabegitops.it"
+    - "app.rabegitops.it"
