@@ -4,7 +4,7 @@ metadata:
   name: app-vs
 spec:
   hosts:
-  - app.rabegitops.it
+  - app-staging.rabegitops.it
   gateways:
   - app-gateway
   http:
