@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: app-deployment
   labels:
@@ -24,3 +24,17 @@ spec:
           limits:
             cpu: 250m
             memory: 256Mi
+  strategy:
+    canary:
+      steps:
+      - setWeight: 10
+      - pause:
+          duration: 1m
+      canaryService: app-service-canary # required
+      stableService: app-service  # required
+      trafficRouting:
+        istio:
+           virtualService: 
+            name: app-vs  # required
+            routes:
+            - main # At least one route is required
