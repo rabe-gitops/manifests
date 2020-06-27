@@ -10,6 +10,6 @@ spec:
   http:
   - route:
     - destination:
-        host: app-service-prod
+        host: app-service
         port:
           number: 8080
