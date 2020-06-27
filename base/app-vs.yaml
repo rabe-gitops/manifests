@@ -6,10 +6,10 @@ spec:
   hosts:
   - app-test.rabegitops.it
   gateways:
-  - app-gateway-test
+  - app-gateway
   http:
   - route:
     - destination:
-        host: app-service-test
+        host: app-service
         port:
           number: 8080

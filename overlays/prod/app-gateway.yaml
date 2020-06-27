@@ -1,22 +1,6 @@
-apiVersion: networking.istio.io/v1alpha3
-kind: Gateway
-metadata:
-  name: app-gateway
-spec:
-  selector:
-    istio: ingressgateway
-  servers:
-  - port:
-      number: 80
-      name: http
-      protocol: HTTP
-    hosts:
-    - "app.rabegitops.it"
-    tls:
-      httpsRedirect: true
-  - port:
-      number: 443
-      name: https
-      protocol: HTTP
-    hosts:
-    - "app.rabegitops.it"
+- op: replace
+  path: /spec/servers/0/hosts/0
+  value: "app-prod.rabegitops.it"
+- op: replace
+  path: /spec/servers/1/hosts/0
+  value: "app-prod.rabegitops.it"

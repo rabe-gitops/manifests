@@ -1,15 +1,3 @@
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: app-vs
-spec:
-  hosts:
-  - app.rabegitops.it
-  gateways:
-  - app-gateway
-  http:
-  - route:
-    - destination:
-        host: app-service-prod
-        port:
-          number: 8080
+- op: replace
+  path: /spec/hosts/0
+  value: "app-prod.rabegitops.it"
