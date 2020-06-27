@@ -4,12 +4,12 @@ metadata:
   name: app-vs
 spec:
   hosts:
-  - app.rabegitops.it
+  - app-test.rabegitops.it
   gateways:
-  - app-gateway
+  - app-gateway-test
   http:
   - route:
     - destination:
-        host: app-service
+        host: app-service-test
         port:
           number: 8080

@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: app-gateway-test
+  name: app-gateway
 spec:
   selector:
     istio: ingressgateway
@@ -11,7 +11,7 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "app-test.rabegitops.it"
+    - "app.rabegitops.it"
     tls:
       httpsRedirect: true
   - port:
@@ -19,4 +19,4 @@ spec:
       name: https
       protocol: HTTP
     hosts:
-    - "app-test.rabegitops.it"
+    - "app.rabegitops.it"

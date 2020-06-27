@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-service
+  name: app-service-test
 spec:
   type: ClusterIP
   ports:
