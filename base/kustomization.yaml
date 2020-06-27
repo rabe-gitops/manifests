@@ -3,4 +3,6 @@ kind: Kustomization
 resources:
   - app-deployment.yaml
   - app-service.yaml
+  - app-gateway.yaml
+  - app-vs.yaml
 
