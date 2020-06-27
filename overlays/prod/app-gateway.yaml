@@ -1,6 +1,6 @@
 - op: replace
   path: /spec/servers/0/hosts/0
-  value: "app-prod.rabegitops.it"
+  value: "app.rabegitops.it"
 - op: replace
   path: /spec/servers/1/hosts/0
-  value: "app-prod.rabegitops.it"
+  value: "app.rabegitops.it"
