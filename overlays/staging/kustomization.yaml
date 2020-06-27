@@ -5,6 +5,16 @@ bases:
   - ../../base
 patchesStrategicMerge:
   - patch.yaml
-patches:
-  - app-gateway.yaml
-  - app-vs.yaml
+patchesJson6902:
+- target:
+    group: networking.istio.io
+    version: v1alpha3
+    kind: Gateway
+    name: app-gateway
+  path: app-gateway.yaml
+- target:
+    group: networking.istio.io
+    version: v1alpha3
+    kind: VirtualService
+    name: app-vs
+  path: app-vs.yaml
