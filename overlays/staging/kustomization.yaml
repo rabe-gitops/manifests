@@ -6,3 +6,6 @@ bases:
   - ../../base
 patchesStrategicMerge:
   - patch.yaml
+patches:
+  - app-gateway.yaml
+  - app-vs.yaml
