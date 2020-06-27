@@ -29,7 +29,7 @@ spec:
       steps:
       - setWeight: 10
       - pause:
-          duration: 1m
+          duration: 10m
       canaryService: app-service-canary # required
       stableService: app-service  # required
       trafficRouting:
