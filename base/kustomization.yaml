@@ -3,6 +3,9 @@ kind: Kustomization
 resources:
   - app-deployment.yaml
   - app-service.yaml
+  - app-service-canary.yaml
   - app-gateway.yaml
   - app-vs.yaml
 
+configurations:
+  - konfig/rollout-transform.yaml

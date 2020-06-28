@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: app-deployment
   labels:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/app:33dac3c
+        image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/app:0.9.2
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -24,3 +24,13 @@ spec:
           limits:
             cpu: 250m
             memory: 256Mi
+  strategy:
+    canary:
+      canaryService: app-service-canary
+      stableService: app-service
+      trafficRouting:
+        istio:
+           virtualService: 
+            name: app-vs
+            routes:
+            - main
