@@ -7,3 +7,5 @@ resources:
   - app-gateway.yaml
   - app-vs.yaml
 
+configurations:
+  - konfig/rollout-transform.yaml

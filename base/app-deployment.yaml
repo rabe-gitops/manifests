@@ -26,15 +26,11 @@ spec:
             memory: 256Mi
   strategy:
     canary:
-      steps:
-      - setWeight: 10
-      - pause:
-          duration: 10m
-      canaryService: app-service-canary # required
-      stableService: app-service  # required
+      canaryService: app-service-canary
+      stableService: app-service
       trafficRouting:
         istio:
            virtualService: 
-            name: app-vs  # required
+            name: app-vs
             routes:
-            - main # At least one route is required
+            - main
