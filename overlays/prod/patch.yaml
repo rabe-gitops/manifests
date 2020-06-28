@@ -3,10 +3,4 @@ kind: Rollout
 metadata:
   name: app-deployment
 spec:
-  replicas: 3
-  strategy:
-    canary:
-      steps:
-      - setWeight: 20
-      - pause:
-          duration: 5m
+  replicas: 2
