@@ -20,7 +20,7 @@ spec:
               name: app-configmap
       containers:
       - name: app
-        image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/app:b07a9d0
+        image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/app:31bc161
         ports:
         - containerPort: 8080
           protocol: TCP
