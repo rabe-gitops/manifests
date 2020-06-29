@@ -14,6 +14,10 @@ spec:
       labels:
         app.kubernetes.io/name: app
     spec:
+      volumes:
+          - name: config-volume
+            configMap:
+              name: app-configmap
       containers:
       - name: app
         image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/app:1.0.2
@@ -24,3 +28,7 @@ spec:
           limits:
             cpu: 250m
             memory: 256Mi
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/share/nginx/html/js/config.js
+          subPath: config.js

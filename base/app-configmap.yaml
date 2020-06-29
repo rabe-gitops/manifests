@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-configmap
+data:
+  config.js: |
+    const endpoints = (() => {
+        return {
+          "API_ENDPOINT": "api-test.rabegitops.it",
+        };
+    })();
