@@ -14,9 +14,3 @@ spec:
         host: app-service
         port:
           number: 8080
-      weight: 100
-    - destination:
-        host: app-service-canary
-        port:
-          number: 8080
-      weight: 0

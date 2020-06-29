@@ -1,10 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - app-deployment.yaml
-  - app-service.yaml
-  - app-service-canary.yaml
+  - api-deployment.yaml
+  - api-service.yaml
+  - api-service-canary.yaml
+  - api-gateway.yaml
+  - api-vs.yaml
   - app-gateway.yaml
+  - app-deployment.yaml
   - app-vs.yaml
 
 configurations:

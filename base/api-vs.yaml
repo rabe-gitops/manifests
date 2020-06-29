@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: api-vs
+spec:
+  hosts:
+  - api-test.rabegitops.it
+  gateways:
+  - api-gateway
+  http:
+  - name: main
+    route:
+    - destination:
+        host: api-service
+        port:
+          number: 8080
+      weight: 100
+    - destination:
+        host: api-service-canary
+        port:
+          number: 8080
+      weight: 0
