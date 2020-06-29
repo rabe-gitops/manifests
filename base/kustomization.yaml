@@ -8,6 +8,7 @@ resources:
   - api-vs.yaml
   - app-gateway.yaml
   - app-deployment.yaml
+  - app-service.yaml
   - app-vs.yaml
 
 configurations:
