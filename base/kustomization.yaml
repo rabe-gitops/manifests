@@ -10,6 +10,7 @@ resources:
   - app-deployment.yaml
   - app-service.yaml
   - app-vs.yaml
+  - app-configmap.yaml
 
 configurations:
   - konfig/rollout-transform.yaml
