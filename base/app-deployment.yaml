@@ -1,5 +1,5 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: app-deployment
   labels:
@@ -14,9 +14,13 @@ spec:
       labels:
         app.kubernetes.io/name: app
     spec:
+      volumes:
+          - name: config-volume
+            configMap:
+              name: app-configmap
       containers:
       - name: app
-        image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/app:1.0.2
+        image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/app:898cde1
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -24,13 +28,7 @@ spec:
           limits:
             cpu: 250m
             memory: 256Mi
-  strategy:
-    canary:
-      canaryService: app-service-canary
-      stableService: app-service
-      trafficRouting:
-        istio:
-           virtualService: 
-            name: app-vs
-            routes:
-            - main
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/share/nginx/html/js/config.js
+          subPath: config.js
