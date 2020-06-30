@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: api-deployment
+  labels:
+    app.kubernetes.io/name: api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: api
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: api
+    spec:
+      containers:
+      - name: api
+        image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/api:ecf22e0
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+  strategy:
+    canary:
+      canaryService: api-service-canary
+      stableService: api-service
+      trafficRouting:
+        istio:
+           virtualService: 
+            name: api-vs
+            routes:
+            - main

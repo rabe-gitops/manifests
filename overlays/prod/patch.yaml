@@ -1,9 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: app-deployment
+  name: api-deployment
 spec:
-  replicas: 3
+  replicas: 2
   strategy:
     canary:
       steps:
