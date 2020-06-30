@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/api:ecf22e0
+        image: 904573531492.dkr.ecr.eu-central-1.amazonaws.com/api:000b840
         ports:
         - containerPort: 8080
           protocol: TCP
